@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import './App.css';
-import { Axios } from 'axios';
+import axios from 'axios';
 import Figure from './components/Figure/Figure';
 
 
@@ -16,14 +16,19 @@ const App = () => {
   const NASA_API_KEY = "JH1tOnIagCfaBo6CBWvIrVPw0JHTu6omcXqeHkly";
   
    useEffect(() => {
-    const getApod = async () => {
-    const data = await axios.get(
-    `${NASA_URL}planetary/apod?date=${date}&api_key=${NASA_API_KEY}`
-    );
-    setApod(data.data);
-    };
-    getApod();
-  }, [date]);
+const getApod = async () => {
+const data = await axios.get(
+`${NASA_URL}planetary/apod?date=${date}&api_key=${NASA_API_KEY}`
+);
+setApod(data.data);
+};
+getApod();
+}, [date]);
+  
+
+  const handleInput = (ev) => {
+  setDate(ev.target.value.toLocaleString());
+  };
 
   return (
     <div className="App">
@@ -31,11 +36,11 @@ const App = () => {
         NASA API <img src={'https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg'} className="logo" alt="NASA LOGO" />
       </h1>
       <h2>Astronomy Picture of the Day</h2>
-        <input type="date" id="photo-date" onChange={handleInput} />
-        {date > today ? (<h2>Please choose a previous date</h2>) 
-        : (<Figure data={apod} />)}
+      <input type="date" id="photo-date" onChange={handleInput} />
+      {date > today ? (<h2>Please choose a previous date</h2>) 
+      : (<Figure data={apod}/>)}
       <div className="standard-dialog center">
-        <h2 className="dialog-text">@lethamburn - 2022 - <a href="https://api.nasa.gov/">https://api.nasa.gov/</a></h2>
+        <h2 className="dialog-text">@lethamburn - 2023 - <a href="https://api.nasa.gov/">https://api.nasa.gov/</a></h2>
       </div>
   </div>
   )

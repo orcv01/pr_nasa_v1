@@ -1,10 +1,22 @@
 import "./Figure.css";
 
-const Figure = () => {
-
+const Figure = ({data}) => {
+    
     return (
         <figure>
-            <h2>Photo Diary</h2>
+            <img src={data.url} alt={data.title} />
+            <div className="window">
+                <div className="title-bar">
+                    <button aria-label="Close" className="close"></button>
+                    <h2 className="title">{data.title}</h2>
+                    <button aria-label="Resize" className="resize"></button>
+                </div>
+                <div className="details-bar">
+                    <span>{data.date}</span>
+                    <span>{data.copyright}</span>
+                </div>
+                <div className="window-pane">{data.explanation}</div>
+            </div>
         </figure>
     )
 }
