@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import Figure from './components/Figure/Figure';
-
+import logo from './assets/nasa-logo-7.png';
 
 const App = () => {
   const today = new Date(Date.now()).toISOString().slice(0, 10);
@@ -33,14 +33,14 @@ getApod();
   return (
     <div className="App">
       <h1 className="title">
-        NASA API <img src={'https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg'} className="logo" alt="NASA LOGO" />
+        NASA API <img src={logo} className="logo" alt="NASA LOGO" />
       </h1>
       <h2>Astronomy Picture of the Day</h2>
       <input type="date" id="photo-date" onChange={handleInput} />
       {date > today ? (<h2>Please choose a previous date</h2>) 
       : (<Figure data={apod}/>)}
       <div className="standard-dialog center">
-        <h2 className="dialog-text">@lethamburn - 2023 - <a href="https://api.nasa.gov/">https://api.nasa.gov/</a></h2>
+        <h2 className="dialog-text">@lethamburn - 2023 - <a href="https://images.nasa.gov/">Imagenes Nasa</a></h2>
       </div>
   </div>
   )
