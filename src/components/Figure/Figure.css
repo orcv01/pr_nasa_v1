@@ -1,11 +1,10 @@
 .details-bar{
-    border: 2px solid red;
     display: flex;
     align-items: center;
     justify-content:center;
     padding: 5px;
     gap: 5px;
-    font-weight: 30px;
+    font-weight: 150px;
     font-size: 20px;
 }
 
